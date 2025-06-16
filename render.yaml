@@ -5,8 +5,8 @@ services:
     buildCommand: "pip install -r requirements.txt"
     startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
     plan: free
-    buildPacks:          # <--- CORRECT indentation
+    buildPacks:
       - url: https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest
-    envVars:             # <--- CORRECT indentation
+    envVars:
       - key: ELEVENLABS_API_KEY
         sync: false
