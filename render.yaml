@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: ai-video-generator
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
+    plan: free
+    buildPacks:
+      - url: https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest
+    envVars:
+      - key: ELEVENLABS_API_KEY
+        sync: false # This tells Render you will set this value in the dashboard
